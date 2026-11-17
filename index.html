@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow">
+  <title>iTaoBuy spreadsheet | Product Finds, QC &amp; Order Costs</title>
+  <meta name="description" content="Browse iTaoBuy spreadsheet finds from HipobuyFind. Search by product name or item ID, compare CNY listing prices, and estimate your order cost.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="iTaoBuy spreadsheet | Product Finds">
+  <meta property="og:description" content="Browse HipobuyFind listings and check size, quality control photos, and shipping costs before ordering.">
+  <!-- index.html
+  Search review: https://itaobuy-spreadsheet.net/ and https://itaobuy-spreadsheet.net/finds/
+  surfaced for the target query. Their catalog covers search, filters, and buying guides.
+  This page adds direct links to the source listings, a crawlable catalog sample, and
+  an editable estimate that separates domestic and international shipping.
+  Indexing submission is pending. Publish on a verified domain, add the live URL as
+  the canonical, and submit it in Google Search Console and Bing Webmaster Tools.
+  -->
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f7ef;
+      --surface: #fff;
+      --ink: #17291f;
+      --muted: #46594d;
+      --line: #d4ded2;
+      --green: #12382a;
+      --lime: #d8f193;
+      font: 16px/1.55 "Instrument Sans", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    :focus-visible { outline: 3px solid #bb5c18; outline-offset: 4px; }
+    .wrap { width: min(1080px, calc(100% - 2rem)); margin-inline: auto; }
+    header, footer { padding: 1rem 0; }
+    header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1.5rem; }
+    nav { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+    .hero { padding: clamp(2rem, 6vw, 5rem) 1rem; border-radius: 1.4rem; text-align: center; color: #fff; background: var(--green); }
+    h1, h2, h3, p { margin: 0 0 .65rem; }
+    h1 { font-size: clamp(2.5rem, 8vw, 5.6rem); line-height: 1; letter-spacing: -.065em; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.1; letter-spacing: -.035em; }
+    h3 { font-size: 1.1rem; line-height: 1.35; }
+    .hero p { max-width: 52ch; margin: 1.15rem auto; color: #e4eee5; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.5rem; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: .65rem 1.05rem; border: 1px solid var(--lime); border-radius: .55rem; font-weight: 750; text-decoration: none; }
+    .primary { background: var(--lime); color: var(--ink); }
+    .button:hover { text-decoration: underline; }
+    section + section { margin-top: 2.25rem; }
+    .panel { padding: clamp(1rem, 4vw, 2rem); background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; }
+    .muted, small { color: var(--muted); }
+    .controls, .grid, .fields { display: grid; gap: .85rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+    .controls { margin: 1rem 0 .5rem; }
+    label { display: grid; align-content: start; gap: .3rem; font-weight: 650; }
+    input, select { min-width: 0; width: 100%; padding: .58rem .7rem; border: 1px solid #849a89; border-radius: .45rem; background: #fff; color: var(--ink); }
+    .product { display: flex; flex-direction: column; align-items: flex-start; padding: 1rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--paper); }
+    .product[hidden], [hidden] { display: none; }
+    .product h3 { margin: .35rem 0; }
+    .product a { margin-top: auto; font-weight: 700; text-underline-offset: .2em; }
+    .price { font-variant-numeric: tabular-nums; }
+    .fields { margin: 1rem 0; }
+    output { display: block; font-size: 1.25rem; font-weight: 750; margin-bottom: .4rem; }
+    .steps { padding-inline-start: 1.4rem; }
+    .steps li { margin-bottom: .7rem; padding-inline-start: .2rem; }
+    details { border-top: 1px solid var(--line); padding: .75rem 0; }
+    summary { cursor: pointer; font-weight: 700; }
+    details p { margin: .5rem 0 0; }
+    footer { margin-top: 2rem; border-top: 1px solid var(--line); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "iTaoBuy spreadsheet",
+    "description": "An independent buying guide with a selection of HipobuyFind listings and an editable order cost estimator.",
+    "inLanguage": "en",
+    "isBasedOn": "https://hipobuyfind.com/"
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/yljbu/">
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <strong>iTaoBuy Finds Guide</strong>
+      <nav aria-label="Page sections">
+        <a href="#catalog">Product finds</a>
+        <a href="#cost">Cost estimate</a>
+        <a href="#guide">Buying guide</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">iTaoBuy spreadsheet</h1>
+      <p>Browse shoes, clothing, and bags from HipobuyFind. Compare listing prices, then check sizing, warehouse photos, and shipping before you order.</p>
+      <div class="actions">
+        <a class="button primary" href="https://hipobuyfind.com/">iTaoBuy spreadsheet</a>
+        <a class="button" href="https://hipobuyfind.com/">Buy it now</a>
+      </div>
+      <p>Both buttons open the HipobuyFind catalog.</p>
+    </section>
+
+    <section class="panel" id="catalog" aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Product finds from HipobuyFind</h2>
+      <p class="muted">Prices are in Chinese yuan (CNY) and reflect the catalog snapshot. Open the source listing to confirm the current price, sizes, and availability.</p>
+      <div class="controls" id="catalog-controls" hidden>
+        <label>Search by name or item ID
+          <input id="find" type="search" placeholder="Sneakers or 148191" aria-controls="products">
+        </label>
+        <label>Category
+          <select id="category" aria-controls="products">
+            <option value="">All categories</option>
+            <option>Shoes</option>
+            <option>Hoodies</option>
+            <option>T-Shirts</option>
+            <option>Jackets</option>
+            <option>Shorts</option>
+            <option>Bags</option>
+          </select>
+        </label>
+      </div>
+      <p id="result-count" class="muted" role="status" hidden></p>
+      <div id="products" class="grid">
+        <article class="product" data-category="Shoes">
+          <small>Shoes · Item 148191</small>
+          <h3>Cream Chunky Sneakers with Wide Laces</h3>
+          <p class="price">¥350.00</p>
+          <a href="https://hipobuyfind.com/goods-148191.html" aria-label="View cream chunky sneakers on HipobuyFind">View listing</a>
+        </article>
+        <article class="product" data-category="Hoodies">
+          <small>Hoodies · Item 154946</small>
+          <h3>Fear of God Essentials Hoodie</h3>
+          <p class="price">¥210.00</p>
+          <a href="https://hipobuyfind.com/goods-154946.html" aria-label="View the Essentials hoodie on HipobuyFind">View listing</a>
+        </article>
+        <article class="product" data-category="T-Shirts">
+          <small>T-Shirts · Item 154920</small>
+          <h3>Graphic Short-Sleeve T-Shirt</h3>
+          <p class="price">¥105.00</p>
+          <a href="https://hipobuyfind.com/goods-154920.html" aria-label="View the graphic T-shirt on HipobuyFind">View listing</a>
+        </article>
+        <article class="product" data-category="Jackets">
+          <small>Jackets · Item 154851</small>
+          <h3>Hooded Quick-Dry Jacket</h3>
+          <p class="price">¥157.14</p>
+          <a href="https://hipobuyfind.com/goods-154851.html" aria-label="View the hooded quick-dry jacket on HipobuyFind">View listing</a>
+        </article>
+        <article class="product" data-category="Shorts">
+          <small>Shorts · Item 152250</small>
+          <h3>Trapstar Shorts</h3>
+          <p class="price">¥104.40</p>
+          <a href="https://hipobuyfind.com/goods-152250.html" aria-label="View Trapstar shorts on HipobuyFind">View listing</a>
+        </article>
+        <article class="product" data-category="Bags">
+          <small>Bags · Item 154850</small>
+          <h3>Beige Quilted Drawstring Mini Backpack</h3>
+          <p class="price">¥340.00</p>
+          <a href="https://hipobuyfind.com/goods-154850.html" aria-label="View the beige quilted backpack on HipobuyFind">View listing</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="cost" aria-labelledby="cost-title">
+      <h2 id="cost-title">Estimate your order cost</h2>
+      <p>Use current quotes and enter each amount in CNY. Include any quoted service or payment fees in the fees field.</p>
+      <p><strong>Estimated total</strong> = item price + domestic shipping + international shipping + fees and taxes.</p>
+      <form id="estimate" hidden>
+        <div class="fields">
+          <label>Item price
+            <input name="item" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+          </label>
+          <label>Domestic shipping
+            <input name="domestic" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+          </label>
+          <label>International shipping
+            <input name="international" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+          </label>
+          <label>Fees and taxes
+            <input name="fees" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+          </label>
+        </div>
+        <output id="total" aria-live="polite"></output>
+        <p class="muted">Blank amounts are excluded. Confirm the final quote after the parcel is measured and weighed.</p>
+      </form>
+    </section>
+
+    <section class="panel" id="guide" aria-labelledby="guide-title">
+      <h2 id="guide-title">What to check before ordering</h2>
+      <ol class="steps">
+        <li><strong>Save the seller link and variant.</strong> Keep the item ID, color, size, and current seller price together so you can find the same listing later.</li>
+        <li><strong>Compare measurements in centimeters.</strong> For clothing, measure a garment you already own laid flat. Check whether the seller’s chart lists flat width or full circumference.</li>
+        <li><strong>Review the warehouse QC photos when available.</strong> Match the selected variant, confirm the quantity, and inspect visible details. Ask for a ruler photo if a measurement affects fit.</li>
+        <li><strong>Compare parcel quotes for your destination.</strong> Check which weight the shipping line uses for billing and whether tracking, insurance, and taxes are included.</li>
+      </ol>
+      <h3>Frequently asked questions</h3>
+      <details>
+        <summary>What is this iTaoBuy spreadsheet?</summary>
+        <p>It is an independent shopping guide with a searchable selection of products from HipobuyFind. Each product links to its HipobuyFind detail page.</p>
+      </details>
+      <details>
+        <summary>Can I use a listing with iTaoBuy?</summary>
+        <p>Open the product detail page, find its original seller link, and check whether your agent accepts that seller link and the selected variant.</p>
+      </details>
+      <details>
+        <summary>What is the difference between listing photos and QC photos?</summary>
+        <p>Listing photos illustrate the item offered by the seller. Warehouse QC photos, when available, show the unit received by the agent and can help you check color, size labels, and visible condition.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="muted">Independent guide. Catalog source <a href="https://hipobuyfind.com/">HipobuyFind</a>.</p>
+    </div>
+  </footer>
+
+  <script>
+    const search = document.querySelector('#find');
+    const category = document.querySelector('#category');
+    const resultCount = document.querySelector('#result-count');
+    const products = Array.from(document.querySelectorAll('.product'), card => ({
+      card,
+      category: card.dataset.category,
+      text: card.textContent.toLowerCase()
+    }));
+
+    function filterProducts() {
+      const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      let count = 0;
+      for (const product of products) {
+        const matchesCategory = !category.value || category.value === product.category;
+        const matchesSearch = words.every(word => product.text.includes(word));
+        product.card.hidden = !(matchesCategory && matchesSearch);
+        if (!product.card.hidden) count++;
+      }
+      resultCount.textContent = count
+        ? `${count} of ${products.length} listings`
+        : 'No matches. Try a different search or category.';
+    }
+
+    search.addEventListener('input', filterProducts);
+    category.addEventListener('change', filterProducts);
+    filterProducts();
+    document.querySelector('#catalog-controls').hidden = false;
+    resultCount.hidden = false;
+
+    const estimate = document.querySelector('#estimate');
+    const amounts = Array.from(estimate.querySelectorAll('input'));
+    const total = document.querySelector('#total');
+    const formatCny = new Intl.NumberFormat('en', { style: 'currency', currency: 'CNY', currencyDisplay: 'code' });
+
+    function updateTotal() {
+      if (amounts.some(amount => !amount.validity.valid)) {
+        total.textContent = 'Enter non-negative amounts with up to two decimal places.';
+        return;
+      }
+      const cents = amounts.reduce((sum, amount) => sum + Math.round(Number(amount.value) * 100), 0);
+      total.textContent = `Estimated total: ${formatCny.format(cents / 100)}`;
+    }
+
+    estimate.addEventListener('input', updateTotal);
+    estimate.addEventListener('submit', event => event.preventDefault());
+    updateTotal();
+    estimate.hidden = false;
+  </script>
+</body>
+</html>
